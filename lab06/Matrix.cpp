@@ -11,6 +11,9 @@ Matrix::Matrix(int mRows, int mCols) {
     this->mElements = new double *[mRows];
     for (int i = 0; i < mRows; i++) {
         this->mElements[i] = new double[mCols];
+        for (int j = 0; j < mCols; j++) {
+            this->mElements[i][j] = 0;
+        }
     }
 }
 
@@ -88,9 +91,7 @@ Matrix operator+(const Matrix &x, const Matrix &y) {
     Matrix result(x.mRows, x.mCols);
     for (int i = 0; i < x.mRows; i++) {
         for (int j = 0; j < x.mCols; j++) {
-            for (int k = 0; k < x.mCols; k++) {
-                result.mElements[i][j] += x.mElements[i][k] * y.mElements[k][j];
-            }
+                result.mElements[i][j] += x.mElements[i][j] + y.mElements[i][j];
         }
     }
     return result;
