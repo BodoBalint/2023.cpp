@@ -1,0 +1,56 @@
+Q Ki a Google jelenlegi vezetője?
+A Larry Page
+A Sergey Brin
+A Satya Nadella
+A Pichai Sundar
+4
+Q Melyik NEM egy IT-s munkakör megnevezése
+A Quantity Assurance Engineer
+A System Architect
+A Business Analyst
+A Full-Stack Developer
+1
+Q Mit értünk startup alatt?
+A Tőzsdén jegyzett vállalkozást
+A Olyan, nagy tőkével rendelkező vállalkozást, mely főleg kisebb cégek
+felvásárlásával növekszik
+A Ötlet-alapú, gyors növekedés lehetőségét magában foglaló fiatal
+vállalkozást
+A Pályázati pénzből indított vállalkozást
+3
+Q Melyik cég NEM fűződik Elon Musk nevéhez?
+A PayPal
+A MySpace
+A Twitter
+A Neuralink
+2
+Q Minek a rövidítése a CEO?
+A Company Execution Officer
+A Chief Executive Officer
+A Corporate Enterprise Office
+A Company Execution Office
+2
+Q Melyik NEM egy Apple termék?
+A iTouch
+A iPod
+A Apple TV
+A iMac
+1
+Q Melyik országban született a Microsoft jelenlegi vezérigazgatója?
+A Amerikai Egyesült Államokban
+A Ausztráliában
+A Indonéziában
+A Indiában
+4
+Q Hány éves a C nyelv?
+A 11
+A 21
+A 31
+A 51
+4
+Q Válaszd ki az OOP nyelveket!
+A Java
+A C
+A C++
+A C#
+1 3 4
