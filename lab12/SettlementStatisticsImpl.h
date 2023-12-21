@@ -13,7 +13,6 @@
 #include <map>
 #include <fstream>
 
-
 using namespace std;
 
 class SettlementStatisticsImpl : public SettlementStatistics
