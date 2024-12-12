@@ -1,15 +1,15 @@
 //
 // Created by Macilaci on 12/14/2023.
 //
-#include <string>
-#include <vector>
 #include "Question.h"
-
 using namespace std;
 
+Question::Question(const string& text, const vector<Answer>& answers) : text(text), answers(answers) {};
 
-void addAnswer(const std::string& answerText, bool isCorrect) {
-    Answer answer;
-    answer.text = answerText;
-    answer.correct = isCorrect;
+string Question::getText() const {
+    return text;
+}
+
+const vector<Answer>& Question::getAnswers() const {
+    return answers;
 }

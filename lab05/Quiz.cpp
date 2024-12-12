@@ -2,38 +2,46 @@
 // Created by Macilaci on 12/14/2023.
 //
 #include "Quiz.h"
-#include <iostream>
 #include <fstream>
 #include <sstream>
 
 using namespace std;
 
-void Quiz::readFromFile(const std::string &filename) {
-        ifstream file(filename);
-        if (!file) {
-            cout << "Could not open file" << endl;
-        }
-        string line;
-        while (getline(file, line)) {
-            Question q;
-            stringstream ss(line);
-            string azonosito, valasz;
-            getline(ss, azonosito, ' ');
-            getline(ss, valasz);
-            if (azonosito == "Q") {
-                q.text = valasz;
-                for (int i = 1; i < 5; ++i) {
-                    Answer a;
-                    getline(ss, azonosito, ' ');
-                    getline(ss, valasz);
-                    a.text = valasz;
-                    a.correct = true;
-                    q.answers.push_back(a);
+Quiz::Quiz(const string& name) : name(name) {}
+
+string Quiz::getName() const {
+    return name;
+}
+
+const vector<Question>& Quiz::getQuestions() const {
+    return questions;
+}
+
+bool Quiz::loadFromFile(const string& filename) {
+    ifstream file(filename);
+    if (!file.is_open()) {
+        return false;
+    }
+    string line;
+    while (getline(file, line)) {
+        if (line.empty()) continue;
+        if (line[0] == 'Q') {
+            string questionText = line.substr(2);
+            vector<Answer> answers;
+            while (getline(file, line) && line[0] == 'A') {
+                answers.emplace_back(line.substr(2), false);
+            }
+            istringstream iss(line);
+            int correctIndex;
+            while (iss >> correctIndex) {
+                if (correctIndex >= 1 && correctIndex <= answers.size()) {
+                    answers[correctIndex - 1] = Answer(answers[correctIndex - 1].getText(), true);
                 }
             }
-            getline(ss, azonosito, ' ');
-            getline(ss, valasz);
+            questions.emplace_back(questionText, answers);
         }
-        file.close();
     }
+    return true;
+}
+
 

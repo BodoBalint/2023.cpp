@@ -4,28 +4,38 @@
 
 #include "QuizGame.h"
 #include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
 
 using namespace std;
 
-void QuizGame::startQuiz(const Quiz &quiz) {
+QuizGame::QuizGame(const Quiz& quiz) : quiz(quiz) {}
+
+void QuizGame::run() const {
+    cout << "Udvozlunk a \"" << quiz.getName() << "\" kvizben!\n";
     int score = 0;
-    for (const auto &question : quiz.questions) {
-        cout << question.text << "\n";
-        int answerNum = 1;
-        for (const auto &answer : question.answers) {
-            cout << answerNum << ". " << answer.text << "\n";
-            answerNum++;
+    for (const auto& question : quiz.getQuestions()) {
+        cout << question.getText() << "\n";
+        const auto& answers = question.getAnswers();
+        for (size_t i = 0; i < answers.size(); ++i) {
+            cout << i + 1 << ". " << answers[i].getText() << "\n";
         }
-        int userAnswer;
-        cout << "Your answer (enter the number of the correct answer): ";
-        cin >> userAnswer;
-        if (userAnswer <= question.answers.size() && question.answers[userAnswer - 1].correct) {
-            cout << "Correct!\n";
-            score++;
-        } else {
-            cout << "Incorrect!\n";
+        cout << "Ird be a helyes valasz(ok) szamat, szokozzel elvalasztva: ";
+        string input;
+        getline(cin, input);
+        istringstream iss(input);
+        vector<int> userAnswers;
+        int num;
+        while (iss >> num) {
+            userAnswers.push_back(num - 1);
+        }
+        for (size_t i = 0; i < answers.size(); ++i) {
+            if (answers[i].isCorrect() && find(userAnswers.begin(), userAnswers.end(), i) != userAnswers.end()) {
+                score++;
+            }
         }
     }
-    cout << "Quiz ended. Your score: " << score << "/" << quiz.questions.size() << "\n";
+    cout << "A pontszamod: " << score << " / " << quiz.getQuestions().size() << "\n";
 }
 

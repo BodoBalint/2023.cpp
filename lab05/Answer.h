@@ -2,16 +2,24 @@
 // Created by Macilaci on 12/14/2023.
 //
 
-#ifndef CPP_2022_ANSWER_H
-#define CPP_2022_ANSWER_H
-
+#ifndef ANSWER_HPP
+#define ANSWER_HPP
 #include <string>
-using namespace std;
 
 class Answer {
-public:
-    string text;
+private:
+    std::string text;
     bool correct;
+public:
+    Answer(const std::string& text, bool correct)
+            : text(text), correct(correct) {};
+    std::string getText() const {
+        return text;
+    };
+    bool isCorrect() const {
+        return correct;
+    }
 };
 
-#endif // CPP_2022_ANSWER_H
+#endif
+

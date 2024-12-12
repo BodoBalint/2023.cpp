@@ -2,18 +2,22 @@
 // Created by Macilaci on 12/14/2023.
 //
 
-#ifndef CPP_2022_QUESTION_H
-#define CPP_2022_QUESTION_H
-
+#ifndef QUESTION_H
+#define QUESTION_H
+#include "Answer.h"
 #include <vector>
 #include <string>
-#include "Answer.h"
+
 using namespace std;
 
 class Question {
-public:
+private:
     string text;
     vector<Answer> answers;
+public:
+    Question(const string& text, const vector<Answer>& answers);
+    string getText() const;
+    const vector<Answer>& getAnswers() const;
 };
 
-#endif // CPP_2022_QUESTION_H
+#endif
