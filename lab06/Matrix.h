@@ -2,13 +2,15 @@
 #define MATRIX_H
 #include <iostream>
 #include <stdexcept>
+
 using namespace std;
+
 class Matrix {
 public:
 
     //Konstruktorok és destruktor:
 
-// Default constructor
+// Ez a default constructor
     Matrix( int mRows = 10, int mCols = 10);
 // Copy constructor
     Matrix(const Matrix& what);
@@ -17,7 +19,7 @@ public:
 // Destructor
     ~Matrix();
 
-    //Feltöltő és kiírató metódusok:
+    //Feltöltő és kiírató metódusok :
 
 //fills the matrix with identical elements
     void fillMatrix(double value);
@@ -34,7 +36,6 @@ public:
     int getCols() const { return this->mCols;}
 
     //Operátorfüggvények (operátorok túlterhelése):
-
 
     //● Összeadás és szorzás:
 

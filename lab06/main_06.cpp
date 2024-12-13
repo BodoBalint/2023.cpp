@@ -1,6 +1,8 @@
 #include <cstdlib>
 #include "Matrix.h"
+
 using namespace std;
+
 Matrix createSquareMatrix(int size) {
     Matrix m(size, size);
     m.fillMatrix(1);

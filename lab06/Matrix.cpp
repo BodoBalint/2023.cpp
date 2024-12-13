@@ -4,7 +4,7 @@
 #include <random>
 #include "Matrix.h"
 
-// Default constructor
+// Ez a default constructor
 Matrix::Matrix(int mRows, int mCols) {
     this->mRows = mRows;
     this->mCols = mCols;
@@ -17,7 +17,7 @@ Matrix::Matrix(int mRows, int mCols) {
     }
 }
 
-// Copy constructor
+// Copy  constructor
 Matrix::Matrix(const Matrix &what) {
     mRows = what.mRows;
     mCols = what.mCols;
@@ -179,14 +179,3 @@ Matrix &Matrix::operator=(Matrix &&mat) {
     mat.mElements = nullptr;
     return *this;
 }
-
-
-
-
-
-
-
-
-
-
-
